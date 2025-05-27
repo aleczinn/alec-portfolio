@@ -41,7 +41,8 @@ module.exports = {
                 "white": "#ffffff"
             },
             screens: {
-                '3xl': '2000px'
+                '3xl': '112rem', // 1792px
+                '4xl': '128rem'  // 2048px
             },
             maxWidth: {
                 "portfolio": "87rem"
@@ -52,7 +53,7 @@ module.exports = {
                 "2xs": "0.625rem"
             },
             fontFamily: {
-                "portfolio": ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
+                "portfolio": ["Inter", ...defaultTheme.fontFamily.sans],
             },
             borderWidth: {
                 1: "1px",
