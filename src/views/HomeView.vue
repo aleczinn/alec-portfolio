@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col h-screen">
-        <header></header>
+        <p-header></p-header>
 
         <main class="flex-1">
             <section id="hero" class="section-hero">
@@ -30,15 +30,15 @@
             </section>
         </main>
 
-        <footer class="px-4 py-4 bg-background-darker">
-            <p class="text-white">Footer</p>
-        </footer>
+        <p-footer></p-footer>
     </div>
 </template>
 
 <script lang="ts" setup>
 
 import { ChevronDown } from "lucide-vue-next";
+import { PHeader } from "@//components/p-header";
+import { PFooter } from "@//components/p-footer";
 </script>
 
 <style lang="postcss" scoped>
