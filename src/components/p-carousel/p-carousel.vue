@@ -43,7 +43,7 @@
             </div>
 
             <!-- navigation arrows -->
-            <button v-if="config.arrows" @click="previousSlide(true)"
+            <button v-if="config.arrows" @click="previousSlide()"
                     :disabled="isNavigationDisabled.previous"
                     :class="['btn-arrow', 'btn-arrow-left', { 'btn-disabled': isNavigationDisabled.previous }]"
             >
@@ -51,7 +51,7 @@
             </button>
 
             <button v-if="config.arrows"
-                    @click="nextSlide(true)"
+                    @click="nextSlide()"
                     :disabled="isNavigationDisabled.next"
                     :class="['btn-arrow', 'btn-arrow-right', { 'btn-disabled': isNavigationDisabled.next }]"
             >
@@ -69,9 +69,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, watch, nextTick, VNode } from 'vue'
-import IconArrowLeft from "@/icons/icon-arrow-left.vue";
-import IconArrowRight from "@/icons/icon-arrow-right.vue";
+import { ref, computed, onMounted, onUnmounted, watch, nextTick, type VNode } from 'vue'
+import IconArrowRight from "../../icons/icon-arrow-right.vue";
+import IconArrowLeft from "../../icons/icon-arrow-left.vue";
 
 export interface ResponsiveConfig {
     autoplayDelay?: number
@@ -164,7 +164,7 @@ const slides = computed((): VNode[] => {
     const defaultSlot = slots.default?.()
     if (!defaultSlot) return []
 
-    return defaultSlot.filter(vnode =>
+    return defaultSlot.filter((vnode: any) =>
         vnode.type !== Comment &&
         (typeof vnode.type !== 'symbol' || vnode.children)
     )
@@ -531,6 +531,7 @@ const handleDragMove = (e: TouchEvent | MouseEvent) => {
     dragCurrentX.value = 'touches' in e ? e.touches[0].clientX : e.clientX
 }
 
+// @ts-ignore
 const handleDragEnd = (e: TouchEvent | MouseEvent) => {
     if (!isDragging.value) return
 
