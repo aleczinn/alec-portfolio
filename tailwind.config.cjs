@@ -6,6 +6,7 @@ module.exports = {
         "./index.html",
         "./src/**/*.{vue,js,ts,jsx,tsx}",
     ],
+    darkMode: 'class',
     theme: {
         extend: {
             colors: {
@@ -37,6 +38,12 @@ module.exports = {
                     DEFAULT: "#eae5ff",
                     darker: "#AEB0B2",
                     darkest: "#6f6f71"
+                },
+                "edel": {
+                    dark: "#111111",
+                    gray: "#2F2F2F",
+                    bright: "#F6F6F6",
+                    primary: "#FFCB74"
                 },
                 "white": "#ffffff"
             },
