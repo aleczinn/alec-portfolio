@@ -37,8 +37,8 @@
 <script lang="ts" setup>
 
 import { ChevronDown } from "lucide-vue-next";
-import { PHeader } from "@//components/p-header";
-import { PFooter } from "@//components/p-footer";
+import { PHeader } from "../components/p-header";
+import { PFooter } from "../components/p-footer";
 </script>
 
 <style lang="postcss" scoped>
