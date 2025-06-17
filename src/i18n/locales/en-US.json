@@ -1,3 +1,19 @@
 {
-
+    "nav": {
+        "home": "Home",
+        "about": "About me",
+        "skills": "Skills",
+        "projects": "Projects",
+        "experience": "Experience",
+        "contact": "Contact"
+    },
+    "hero": {
+        "greeting": "\uD83D\uDC4B Hey, I'm Alec",
+        "description": "I create modern, responsive and user-friendly web applications with a passion for detail and performance.",
+        "about": "About me",
+        "viewProjects": "View Projekte",
+        "role1": "Web Developer",
+        "role2": "Web Designer",
+        "role3": "Lass uns die Zukunft verändern"
+    }
 }
