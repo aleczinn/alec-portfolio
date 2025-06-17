@@ -73,7 +73,7 @@ module.exports = {
                 "2xs": "0.625rem"
             },
             fontFamily: {
-                "portfolio": ["Inter", ...defaultTheme.fontFamily.sans],
+                "inter": ["Inter", ...defaultTheme.fontFamily.sans],
                 "manrope": ["Manrope", ...defaultTheme.fontFamily.sans],
             },
             borderWidth: {
