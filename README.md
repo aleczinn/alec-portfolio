@@ -11,8 +11,8 @@
 
 ## **Features:**
 
-* **Light/Dark Modes Supported 🌙☀️:**  Switch effortlessly between light and dark themes. Your preference is saved, even
-  after you close the page!
+* **Multiple Languages Supported:** Switch effortlessly between german and english. Your preference is saved, even after you close the page!
+* **Animations:** I added some animations to give the website a better feeling
 * **Clean Code 👍:** Well-formatted and easy to follow.
 * **And More!** See the details below.
 
@@ -20,13 +20,12 @@
 
 * HTML, CSS, JavaScript, TypeScript
 * Vue.js 3, Vite, Tailwind CSS
-* This project uses the "Inter" font, originally provided by [Google Fonts](https://fonts.google.com/specimen/Inter) under the SIL Open Font License 1.1. The font files are hosted locally to ensure GDPR compliance.
-* This project uses the "Manrope" font, originally provided by [Google Fonts](https://fonts.google.com/specimen/Manrope) under the SIL Open Font License 1.1. The font files are hosted locally to ensure GDPR compliance.
 * FontAwesome Icons
+* This project uses the [Inter](https://fonts.google.com/specimen/Inter) & [Manrope](https://fonts.google.com/specimen/Manrope) font, originally provided by Google Fonts under the SIL Open Font License 1.1. The font files are hosted locally to ensure GDPR compliance.
 
 ## **Live Demo?**
 
-* Visit: [https://aleczinn.github.io/alec-portfolio/](https://aleczinn.github.io/alec-portfolio/)
+* Visit 👀: [https://aleczinn.github.io/alec-portfolio/](https://aleczinn.github.io/alec-portfolio/) 
 * Or, explore the code on
   GitHub: [https://github.com/aleczinn/alec-portfolio/](https://github.com/aleczinn/alec-portfolio/)
 
