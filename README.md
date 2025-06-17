@@ -21,6 +21,7 @@
 * HTML, CSS, JavaScript, TypeScript
 * Vue.js 3, Vite, Tailwind CSS
 * This project uses the "Inter" font, originally provided by [Google Fonts](https://fonts.google.com/specimen/Inter) under the SIL Open Font License 1.1. The font files are hosted locally to ensure GDPR compliance.
+* This project uses the "Manrope" font, originally provided by [Google Fonts](https://fonts.google.com/specimen/Manrope) under the SIL Open Font License 1.1. The font files are hosted locally to ensure GDPR compliance.
 * FontAwesome Icons
 
 ## **Live Demo?**
