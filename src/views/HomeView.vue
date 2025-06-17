@@ -68,7 +68,7 @@
             </section>
 
             <!-- About Me Section -->
-            <section id="about" class="py-20">
+            <section id="about" class="py-32">
                 <div class="mx-auto max-w-portfolio px-6">
                     <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Kreativität trifft auf Code</h2>
 
@@ -107,7 +107,7 @@
             </section>
 
             <!-- Skills Section -->
-            <section id="skills" class="py-20">
+            <section id="skills" class="py-32">
                 <div class="mx-auto max-w-portfolio px-6">
                     <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Meine Skills</h2>
 
@@ -138,9 +138,10 @@
 
                         <div>
                             <h3 class="text-2xl font-semibold mb-8 flex items-center">
-                <span class="w-8 h-8 mr-3 bg-blue-400/30 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                  <server-icon class="w-5 h-5"/>
-                </span>
+                                <span
+                                    class="w-8 h-8 mr-3 bg-blue-400/30 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                                    <server-icon class="w-5 h-5"/>
+                                </span>
                                 Weitere Technologien
                             </h3>
 
@@ -165,7 +166,7 @@
             </section>
 
             <!-- Projects Section -->
-            <section id="projects" class="py-20">
+            <section id="projects" class="py-32">
                 <div class="mx-auto max-w-portfolio px-6">
                     <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Meine Projekte</h2>
 
@@ -227,7 +228,7 @@
             </section>
 
             <!-- Career Path Section -->
-            <section id="career" class="py-20">
+            <section id="career" class="py-32">
                 <div class="mx-auto max-w-portfolio px-6">
                     <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Mein Werdegang</h2>
 
@@ -265,14 +266,7 @@
             </section>
 
             <p-footer :social-links="socialLinks"></p-footer>
-
-            <!-- Scroll to Top Button -->
-            <a @click="scrollToTop"
-                class="fixed bottom-24 right-8 w-14 h-14 rounded-full bg-new-light/60 backdrop-blur-md flex justify-center items-center transition-all duration-300 hover:bg-new-lightest hover:cursor-pointer z-50"
-               :class="{ 'opacity-0 pointer-events-none': !showScrollTop, 'opacity-100': showScrollTop }"
-            >
-                <chevron-up-icon class="w-6 h-6 text-white mb-[0.125rem]"/>
-            </a>
+            <p-scroll-to-top></p-scroll-to-top>
         </div>
     </div>
 </template>
@@ -294,15 +288,19 @@ import IconXing from "../icons/icon-xing.vue";
 import { getCurrentLocale, loadLocaleAsync } from "../i18n/index.js";
 import { PFooter } from "../components/p-footer/index.js";
 import { PHeader } from "../components/p-header/index.js";
+import { useI18n } from "vue-i18n";
+import { PScrollToTop } from "../components/p-scroll-to-top/index.js";
+
+const { t, locale } = useI18n()
 
 // Navigation
-const navItems = [
-    { id: 'hero', name: 'Home' },
-    { id: 'about', name: 'Über mich' },
-    { id: 'skills', name: 'Skills' },
-    { id: 'projects', name: 'Projekte' },
-    { id: 'career', name: 'Werdegang' }
-];
+const navItems = computed(() => [
+    { id: 'hero', name: t('nav.home') },
+    { id: 'about', name: t('nav.about') },
+    { id: 'skills', name: t('nav.skills') },
+    { id: 'projects', name: t('nav.projects') },
+    { id: 'career', name: t('nav.experience') }
+])
 
 const activeSection = ref('hero');
 
@@ -459,8 +457,8 @@ const checkScroll = () => {
     showScrollTop.value = window.scrollY > 250;
     showScrollTopSmall.value = window.scrollY > 50;
 
-    // Update active section
-    const sections = navItems.map(item => item.id);
+    // Update active sections
+    const sections = navItems.value.map(item => item.id);
     for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.getElementById(sections[i]);
         if (section) {
