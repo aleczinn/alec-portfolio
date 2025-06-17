@@ -10,14 +10,14 @@
                 <div v-for="(blob, index) in blobs" :key="index"
                      class="absolute rounded-full blur-3xl opacity-40 animate-blob"
                      :style="{
-               width: `${blob.size}px`,
-               height: `${blob.size}px`,
-               left: `${blob.x}%`,
-               top: `${blob.y}%`,
-               backgroundColor: blob.color,
-               animationDelay: `${index * 0.5}s`,
-               animationDuration: `${blob.duration}s`
-             }">
+                        width: `${blob.size}px`,
+                        height: `${blob.size}px`,
+                        left: `${blob.x}%`,
+                        top: `${blob.y}%`,
+                        backgroundColor: blob.color,
+                        animationDelay: `${index * 0.5}s`,
+                        animationDuration: `${blob.duration}s`
+                     }">
                 </div>
 
                 <!-- Additional dark overlay for depth -->

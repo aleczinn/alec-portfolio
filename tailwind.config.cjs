@@ -11,34 +11,6 @@ module.exports = {
         extend: {
             colors: {
                 "transparent": "transparent",
-                "primary": {
-                    lightest: "#8fc5ea",
-                    lighter: "#53a7dd",
-                    DEFAULT: "#2980b9",
-                    darker: "#1e6fab",
-                    darkest: "#19598b"
-                },
-                "gray": {
-                    lightest: "#e9ebec",
-                    lighter: "#dee1e3",
-                    DEFAULT: "#D4D7DA",
-                    darker: "#AEB0B2",
-                    darkest: "#6C757D"
-                },
-                "background": {
-                    lightest: "#181c22",
-                    lighter: "#14171d",
-                    DEFAULT: "#0f1115",
-                    darker: "#0d0f12",
-                    darkest: "#0b0c0f"
-                },
-                "text": {
-                    lightest: "",
-                    light: "",
-                    DEFAULT: "#eae5ff",
-                    darker: "#AEB0B2",
-                    darkest: "#6f6f71"
-                },
                 "edel": {
                     dark: "#111111",
                     gray: "#2F2F2F",
@@ -58,6 +30,7 @@ module.exports = {
                     white: "#FEFEFE",
                     primary: "#FFCB74"
                 },
+                "black": "#000000",
                 "white": "#ffffff"
             },
             screens: {
