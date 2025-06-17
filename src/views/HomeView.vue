@@ -61,6 +61,10 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="absolute bottom-8 left-1/2 transition-all duration-300 transform -translate-x-1/2 animate-bounce" :class="{'opacity-0': showScrollTopSmall}">
+                    <ChevronDown class="w-8 h-8 text-white" />
+                </div>
             </section>
 
             <!-- About Me Section -->
@@ -68,20 +72,16 @@
                 <div class="mx-auto max-w-portfolio px-6">
                     <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Kreativität trifft auf Code</h2>
 
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div class="relative">
-                            <div
-                                class="aspect-w-16 aspect-h-9 rounded-3xl overflow-hidden border-2 border-white/10 p-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="p-6 w-full">
+                            <div class="aspect-w-16 aspect-h-9">
                                 <div class="w-full h-full rounded-2xl overflow-hidden">
                                     <img src="/image-1.png" alt="Alec" class="w-full h-full object-cover" />
                                 </div>
                             </div>
-                            <div
-                                class="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-600/30 rounded-full blur-2xl"></div>
-                            <div class="absolute -top-6 -left-6 w-24 h-24 bg-blue-300/30 rounded-full blur-xl"></div>
                         </div>
 
-                        <div>
+                        <div class="p-6 w-full">
                             <p class="text-lg mb-8">
                                 Als leidenschaftlicher Frontend-Entwickler verbinde ich technisches Know-how mit
                                 kreativem Design.
@@ -94,7 +94,6 @@
                                 ich Ideen zum Leben
                                 und schaffe digitale Erlebnisse, die begeistern.
                             </p>
-
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                                 <div v-for="(stat, index) in stats" :key="index"
                                      class=" p-4 text-center">
@@ -289,7 +288,7 @@ import {
     ChevronLeft as ChevronLeftIcon,
     ChevronRight as ChevronRightIcon,
     ChevronUp as ChevronUpIcon,
-    Globe as GlobeIcon,
+    Globe as GlobeIcon, ChevronDown,
 } from 'lucide-vue-next';
 import IconXing from "../icons/icon-xing.vue";
 import { getCurrentLocale, loadLocaleAsync } from "../i18n/index.js";
@@ -447,6 +446,7 @@ const blobs = [
 
 // Scroll to Top
 const showScrollTop = ref(false);
+const showScrollTopSmall = ref(false);
 
 const scrollToTop = () => {
     window.scrollTo({
@@ -456,7 +456,8 @@ const scrollToTop = () => {
 };
 
 const checkScroll = () => {
-    showScrollTop.value = window.scrollY > 500;
+    showScrollTop.value = window.scrollY > 250;
+    showScrollTopSmall.value = window.scrollY > 50;
 
     // Update active section
     const sections = navItems.map(item => item.id);
