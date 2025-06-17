@@ -27,7 +27,7 @@
 
         <!-- Content Container -->
         <div class="relative z-10 text-white">
-            <p-header :nav-items="navItems" :active-section="activeSection"></p-header>
+            <p-header :nav-items="navItems" :active-section="activeSection" @toggle-language="toggleLanguage"></p-header>
 
             <!-- Hero Section -->
             <section id="hero" class="relative min-h-screen flex flex-col justify-center">
