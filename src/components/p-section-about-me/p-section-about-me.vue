@@ -30,16 +30,16 @@
 
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
+import { computed } from "vue";
 
 const { t } = useI18n()
 
-interface Props {
-    stats: any
-}
-
-const props = withDefaults(defineProps<Props>(), {
-    stats: [],
-})
+const stats = computed(() => [
+    { value: '10+', label: t('about-me.java') },
+    { value: '3+', label: t('about-me.frontend') },
+    { value: '10+', label: t('about-me.projects') },
+    { value: '100%', label: t('about-me.passion') }
+]);
 </script>
 
 <style scoped lang="postcss">

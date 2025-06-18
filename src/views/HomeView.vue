@@ -30,7 +30,7 @@
         <div class="relative z-10 text-white">
             <p-header :nav-items="navItems" :active-section="activeSection" @toggle-language="toggleLanguage"></p-header>
             <p-section-hero id="hero" :social-links="socialLinks"></p-section-hero>
-            <p-section-about-me id="about" :stats="stats"></p-section-about-me>
+            <p-section-about-me id="about"></p-section-about-me>
             <p-section-skills id="skills"></p-section-skills>
             <p-section-projects id="projects"></p-section-projects>
             <p-section-career id="career"></p-section-career>
@@ -50,17 +50,17 @@ import IconXing from "../icons/icon-xing.vue";
 import { getCurrentLocale, loadLocaleAsync } from "../i18n/index.js";
 import { PFooter } from "../components/p-footer/index.js";
 import { PHeader } from "../components/p-header/index.js";
-import { useI18n } from "vue-i18n";
 import { PScrollToTop } from "../components/p-scroll-to-top/index.js";
 import { PSectionHero } from "../components/p-section-hero/index.js";
 import { PSectionAboutMe } from "../components/p-section-about-me/index.js";
 import { PSectionSkills } from "../components/p-section-skills/index.js";
 import { PSectionProjects } from "../components/p-section-projects/index.js";
 import { PSectionCareer } from "../components/p-section-career/index.js";
-
+import { useI18n } from "vue-i18n";
 const { t } = useI18n()
 
-// Navigation
+const activeSection = ref('hero');
+
 const navItems = computed(() => [
     { id: 'hero', name: t('nav.home') },
     { id: 'about', name: t('nav.about') },
@@ -69,22 +69,11 @@ const navItems = computed(() => [
     { id: 'career', name: t('nav.experience') }
 ]);
 
-const activeSection = ref('hero');
-
-// Social Links
 const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/aleczinn', icon: GithubIcon },
     { name: 'LinkedIn', url: 'www.linkedin.com/in/alec-zinn', icon: LinkedinIcon },
     { name: 'Xing', url: 'https://www.xing.com/profile/Alec_Zinn/', icon: IconXing }
 ];
-
-// About Me Stats
-const stats = computed(() => [
-    { value: '10+', label: t('about-me.java') },
-    { value: '3+', label: t('about-me.frontend') },
-    { value: '10+', label: t('about-me.projects') },
-    { value: '100%', label: t('about-me.passion') }
-]);
 
 const toggleLanguage = async () => {
     try {
@@ -105,14 +94,6 @@ const blobs = [
     { x: 60, y: 40, size: 380, color: 'rgba(147, 51, 234, 0.08)', duration: 27 }, // Deep Purple
     { x: 10, y: 75, size: 320, color: 'rgba(124, 58, 237, 0.09)', duration: 33 } // Another Purple variant
 ];
-
-// Scroll to Top
-const scrollToTop = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-};
 
 const updateSections = () => {
     const sections = navItems.value.map(item => item.id);

@@ -22,6 +22,8 @@
 
 <script setup lang="ts">
 import { Globe as GlobeIcon } from "lucide-vue-next";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n()
 
 interface Props {
     navItems: any
