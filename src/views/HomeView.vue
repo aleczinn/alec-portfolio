@@ -30,45 +30,8 @@
         <div class="relative z-10 text-white">
             <p-header :nav-items="navItems" :active-section="activeSection" @toggle-language="toggleLanguage"></p-header>
             <p-section-hero id="hero" :social-links="socialLinks"></p-section-hero>
+            <p-section-about-me id="about" :stats="stats"></p-section-about-me>
 
-            <!-- About Me Section -->
-            <section id="about" class="py-32">
-                <div class="mx-auto max-w-portfolio px-6">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Kreativität trifft auf Code</h2>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6 w-full">
-                            <div class="aspect-w-16 aspect-h-9">
-                                <div class="w-full h-full rounded-2xl overflow-hidden">
-<!--                                    <img src="/image-1.png" alt="Alec" class="w-full h-full object-cover" />-->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 w-full">
-                            <p class="text-lg mb-8">
-                                Als leidenschaftlicher Frontend-Entwickler verbinde ich technisches Know-how mit
-                                kreativem Design.
-                                Mein Ziel ist es, Webanwendungen zu erschaffen, die nicht nur funktional sind, sondern
-                                auch durch
-                                ihre Benutzerfreundlichkeit und ästhetische Gestaltung überzeugen.
-                            </p>
-                            <p class="text-lg mb-12">
-                                Mit einem Auge fürs Detail und einem tiefen Verständnis moderner Webtechnologien bringe
-                                ich Ideen zum Leben
-                                und schaffe digitale Erlebnisse, die begeistern.
-                            </p>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                                <div v-for="(stat, index) in stats" :key="index"
-                                     class=" p-4 text-center">
-                                    <div class="text-3xl text-new-light font-bold mb-1">{{ stat.value }}</div>
-                                    <div class="text-sm text-white">{{ stat.label }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <!-- Skills Section -->
             <section id="skills" class="py-32">
@@ -255,6 +218,7 @@ import { PHeader } from "../components/p-header/index.js";
 import { useI18n } from "vue-i18n";
 import { PScrollToTop } from "../components/p-scroll-to-top/index.js";
 import { PSectionHero } from "../components/section-hero/index.js";
+import { PSectionAboutMe } from "../components/section-about-me/index.js";
 
 const { t } = useI18n()
 
@@ -265,7 +229,7 @@ const navItems = computed(() => [
     { id: 'skills', name: t('nav.skills') },
     { id: 'projects', name: t('nav.projects') },
     { id: 'career', name: t('nav.experience') }
-])
+]);
 
 const activeSection = ref('hero');
 
@@ -277,12 +241,12 @@ const socialLinks = [
 ];
 
 // About Me Stats
-const stats = [
-    { value: '10+', label: 'Jahre Java' },
-    { value: '3+', label: 'Jahre Frontend' },
-    { value: '10+', label: 'Projekte' },
-    { value: '100%', label: 'Leidenschaft' }
-];
+const stats = computed(() => [
+    { value: '10+', label: t('about-me.java') },
+    { value: '3+', label: t('about-me.frontend') },
+    { value: '10+', label: t('about-me.projects') },
+    { value: '100%', label: t('about-me.passion') }
+]);
 
 // Skills
 const frontendSkills = [

@@ -15,5 +15,14 @@
         "role1": "Web Developer",
         "role2": "Web Designer",
         "role3": "Lass uns die Zukunft verändern"
+    },
+    "about-me": {
+        "title": "Kreativität trifft auf Code",
+        "text1": "Als leidenschaftlicher Frontend-Entwickler verbinde ich technisches Know-how mit kreativem Design. Mein Ziel ist es, Webanwendungen zu erschaffen, die nicht nur funktional sind, sondern auch durch ihre Benutzerfreundlichkeit und ästhetische Gestaltung überzeugen.",
+        "text2": "Mit einem Auge fürs Detail und einem tiefen Verständnis moderner Webtechnologien bringe ich Ideen zum Leben und schaffe digitale Erlebnisse, die begeistern.",
+        "java": "Jahre Java",
+        "frontend": "Jahre Frontend",
+        "projects": "Projekte",
+        "passion": "Leidenschaft"
     }
 }
