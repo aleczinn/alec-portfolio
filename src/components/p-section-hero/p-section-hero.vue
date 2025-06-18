@@ -1,9 +1,9 @@
 <template>
     <section class="relative min-h-screen flex flex-col justify-center">
         <div class="mx-auto max-w-portfolio px-6 w-full">
-            <h2 class="text-4xl font-light mb-2">{{ t('hero.greeting') }}</h2>
-            <h1 class="text-7xl font-bold mb-4">Frontend Entwickler</h1>
-            <p class="text-xl max-w-[60ch] mb-12">{{ t('hero.description') }}</p>
+            <h2 class="text-2xl md:text-4xl font-light mb-2">{{ t('hero.greeting') }}</h2>
+            <h1 class="text-4xl md:text-7xl font-bold mb-8 md:mb-4">Frontend Entwickler</h1>
+            <p class="text-lg md:text-xl max-w-[60ch] mb-12">{{ t('hero.description') }}</p>
             <div class="flex gap-6">
                 <a href="#about"
                    class="px-6 py-4 bg-white text-black rounded-3xl font-medium shadow flex items-center justify-center transition-colors duration-300 hover:bg-new-light hover:text-white">
