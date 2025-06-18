@@ -217,8 +217,8 @@ import { PFooter } from "../components/p-footer/index.js";
 import { PHeader } from "../components/p-header/index.js";
 import { useI18n } from "vue-i18n";
 import { PScrollToTop } from "../components/p-scroll-to-top/index.js";
-import { PSectionHero } from "../components/section-hero/index.js";
-import { PSectionAboutMe } from "../components/section-about-me/index.js";
+import { PSectionHero } from "../components/p-section-hero/index.js";
+import { PSectionAboutMe } from "../components/p-section-about-me/index.js";
 
 const { t } = useI18n()
 
