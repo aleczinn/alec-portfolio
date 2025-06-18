@@ -1,5 +1,5 @@
 <template>
-    <section id="skills" class="py-32">
+    <section class="py-32">
         <div class="mx-auto max-w-portfolio px-6">
             <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Meine Skills</h2>
 
