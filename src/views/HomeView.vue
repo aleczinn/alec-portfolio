@@ -4,7 +4,7 @@
         <div class="fixed inset-0 z-0">
             <div class="absolute inset-0 bg-black">
                 <!-- Dark gradient overlay -->
-                <div class="absolute inset-0 bg-gradient-to-br from-gray-800 via-black to-gray-900"></div>
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-950 to-gray-900"></div>
 
                 <!-- Selective colored blobs -->
                 <div v-for="(blob, index) in blobs" :key="index"
@@ -21,51 +21,15 @@
                 </div>
 
                 <!-- Additional dark overlay for depth -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>
+<!--                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>-->
             </div>
         </div>
+
 
         <!-- Content Container -->
         <div class="relative z-10 text-white">
             <p-header :nav-items="navItems" :active-section="activeSection" @toggle-language="toggleLanguage"></p-header>
-
-            <!-- Hero Section -->
-            <section id="hero" class="relative min-h-screen flex flex-col justify-center">
-                <div class="mx-auto max-w-portfolio px-6 w-full">
-                        <h2 class="text-4xl font-light mb-2">{{ $t('hero.greeting') }}</h2>
-                        <h1 class="text-7xl font-bold mb-4">Frontend Entwickler</h1>
-                        <p class="text-xl max-w-[60ch] mb-12">{{ $t('hero.description') }}</p>
-                        <div class="flex gap-6">
-                            <a href="#about"
-                               class="px-6 py-4 bg-white text-black rounded-3xl font-medium shadow flex items-center justify-center transition-colors duration-300 hover:bg-new-light hover:text-white">
-                                {{ $t('hero.about') }}
-                            </a>
-
-                            <a href="#projects"
-                               class="px-6 py-4 border-2 border-white rounded-3xl font-medium shadow flex items-center justify-center transition-colors duration-300 hover:border-new-light">
-                                {{ $t('hero.viewProjects') }}
-                            </a>
-                        </div>
-                </div>
-
-                <!-- Social Links -->
-                <div class="absolute bottom-48 left-0 right-0">
-                    <div class="w-full mx-auto max-w-portfolio px-6">
-                        <div class="flex flex-row gap-6 ml-auto">
-                            <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank"
-                               rel="noopener noreferrer"
-                               class="text-white/80 hover:text-new-light p-2 transition-colors duration-300">
-                                <component :is="social.icon" class="w-6 h-6"/>
-                                <span class="sr-only">{{ social.name }}</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="absolute bottom-8 left-1/2 transition-all duration-300 transform -translate-x-1/2 animate-bounce" :class="{'opacity-0': showScrollTopSmall}">
-                    <ChevronDown class="w-8 h-8 text-white" />
-                </div>
-            </section>
+            <p-section-hero id="hero" :social-links="socialLinks"></p-section-hero>
 
             <!-- About Me Section -->
             <section id="about" class="py-32">
@@ -76,7 +40,7 @@
                         <div class="p-6 w-full">
                             <div class="aspect-w-16 aspect-h-9">
                                 <div class="w-full h-full rounded-2xl overflow-hidden">
-                                    <img src="/image-1.png" alt="Alec" class="w-full h-full object-cover" />
+<!--                                    <img src="/image-1.png" alt="Alec" class="w-full h-full object-cover" />-->
                                 </div>
                             </div>
                         </div>
@@ -290,8 +254,9 @@ import { PFooter } from "../components/p-footer/index.js";
 import { PHeader } from "../components/p-header/index.js";
 import { useI18n } from "vue-i18n";
 import { PScrollToTop } from "../components/p-scroll-to-top/index.js";
+import { PSectionHero } from "../components/section-hero/index.js";
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
 
 // Navigation
 const navItems = computed(() => [
@@ -482,34 +447,10 @@ onUnmounted(() => {
 </script>
 
 <style>
-.squircle-sm {
-    border-radius: 20px;
-}
-
-.squircle-md {
-    border-radius: 28px;
-}
-
-.squircle-lg {
-    border-radius: 40px;
-}
-
-/* Bessere Squircle-Approximation mit komplexer border-radius */
-.squircle-precise-sm {
-    border-radius: 18px/16px;
-}
-
-.squircle-precise-md {
-    border-radius: 24px/20px;
-}
-
-.squircle-precise-lg {
-    border-radius: 36px/28px;
-}
-
-/* SVG-basierte Squircle mit clip-path */
-.squircle-svg {
-    clip-path: url(#squircle);
+@keyframes gradient {
+    70% {
+        transform: scale(1.2) translate(50px);
+    }
 }
 
 @keyframes blob {
@@ -529,19 +470,5 @@ onUnmounted(() => {
 
 .animate-blob {
     animation: blob 20s infinite alternate;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-}
-
-/* For demonstration purposes - replace with actual images */
-img[src^="/"] {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
 }
 </style>
