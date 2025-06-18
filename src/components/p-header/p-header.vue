@@ -4,18 +4,19 @@
             <ul class="flex space-x-10">
                 <li v-for="(item, index) in navItems" :key="index">
                     <a :href="`#${item.id}`"
-                       :class="['px-4 py-2 transition-all duration-300', activeSection === item.id ? 'text-new-light font-semibold' : 'text-white/80 hover:text-white font-normal']">
+                       :class="['px-4 py-2 transition-all duration-300', activeSection === item.id ? 'text-new-light font-bold' : 'text-white/80 hover:text-white font-normal']">
                         {{ item.name }}
+                    </a>
+                </li>
+
+                <li>
+                    <a @click="handleToggleLanguage"
+                       class="p-0 transition-all duration-300 text-white/80 hover:text-white hover:cursor-pointer">
+                        <component :is="GlobeIcon" class="w-[1.375rem] h-[1.375rem]"/>
                     </a>
                 </li>
             </ul>
         </nav>
-
-        <div
-            class="backdrop-blur-md bg-black/40 border-2 border-new/20 rounded-3xl px-8 py-6 shadow-2xl hover:cursor-pointer hover:text-new-light"
-            @click="handleToggleLanguage">
-            <component :is="GlobeIcon" class="w-6 h-6"/>
-        </div>
     </header>
 </template>
 
