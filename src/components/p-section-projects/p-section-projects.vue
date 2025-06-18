@@ -64,7 +64,6 @@
 <script setup lang="ts">
 import {
     Github as GithubIcon,
-    Linkedin as LinkedinIcon,
     ChevronLeft as ChevronLeftIcon,
     ChevronRight as ChevronRightIcon,
 } from 'lucide-vue-next';
