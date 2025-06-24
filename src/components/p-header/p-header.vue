@@ -92,7 +92,7 @@ onUnmounted(() => {
 
 <style scoped lang="postcss">
 .header {
-    @apply sticky top-0 bg-black/80 backdrop-blur-sm px-6 py-6 z-50;
+    @apply sticky top-0 bg-black/60 backdrop-blur-sm px-6 py-6 z-50;
     @apply lg:fixed lg:top-8 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:rounded-3xl lg:w-auto lg:min-w-max lg:bg-black/60 lg:border-2 lg:border-new/20;
     @apply shadow-lg;
 }
