@@ -1,64 +1,118 @@
 <template>
-    <section class="py-32">
-        <div class="mx-auto max-w-portfolio px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Meine Projekte</h2>
+    <p-section>
+        <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">{{ t('projects.title') }}</h2>
 
-            <div class="relative">
-                <button @click="prevProject"
-                        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 backdrop-blur-md border border-white/10 p-3 rounded-full hover:bg-black/30 transition-all duration-300 hidden md:block">
-                    <chevron-left-icon class="w-6 h-6"/>
-                </button>
-
-                <div class="overflow-hidden">
-                    <div class="flex transition-transform duration-500 ease-in-out"
-                         :style="{ transform: `translateX(-${currentProjectIndex * (100 / visibleProjects)}%)` }">
-                        <div v-for="(project, index) in projects" :key="index"
-                             :style="{ flex: `0 0 ${100 / visibleProjects}%` }"
-                             class="px-3">
-                            <div
-                                class="backdrop-blur-md bg-black/30 border border-white/10 rounded-2xl overflow-hidden h-full transition-all duration-300 hover:bg-black/15 hover:translate-y-[-5px]">
-                                <div class="aspect-video overflow-hidden">
-                                    <img :src="project.image" :alt="project.name"
-                                         class="w-full h-full object-cover"/>
-                                </div>
-                                <div class="p-6">
-                                    <h3 class="text-xl font-bold mb-2">{{ project.name }}</h3>
-                                    <p class="text-sm opacity-80 mb-4">{{ project.description }}</p>
-
-                                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span v-for="tech in project.technologies" :key="tech"
-                              class="text-xs px-3 py-1 rounded-full bg-blue-600/30 backdrop-blur-sm">
-                          {{ tech }}
-                        </span>
-                                    </div>
-
-                                    <a :href="project.github" target="_blank" rel="noopener noreferrer"
-                                       class="inline-flex items-center px-4 py-2 bg-black/40 backdrop-blur-md border border-white/10 rounded-full hover:bg-black/30 transition-all duration-300">
-                                        <github-icon class="w-4 h-4 mr-2"/>
-                                        GitHub
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <button @click="nextProject"
-                        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 backdrop-blur-md border border-white/10 p-3 rounded-full hover:bg-black/30 transition-all duration-300 hidden md:block">
-                    <chevron-right-icon class="w-6 h-6"/>
-                </button>
-
-                <!-- Mobile Navigation Dots -->
-                <div class="flex justify-center space-x-2 mt-6 md:hidden">
-                    <button v-for="(_, index) in Math.ceil(projects.length / visibleProjects)" :key="index"
-                            @click="currentProjectIndex = index * visibleProjects"
-                            :class="['w-3 h-3 rounded-full transition-all duration-300',
-                               currentProjectIndex === index * visibleProjects ? 'bg-white' : 'bg-white/30']">
-                    </button>
+        <p-carousel :autoplay-delay="4000"
+                    :infinite="true"
+                    :arrows="true"
+                    :dots="true"
+                    :draggable="true"
+                    transition-type="slide"
+                    height="auto"
+                    gap="3rem"
+                    :slides-per-view="1"
+                    :slides-to-scroll="1"
+                    :responsive="{
+                        md: {
+                            slidesPerView: 2
+                        },
+                        lg: {
+                            slidesPerView: 3
+                        }
+                    }"
+        >
+            <div class="aspect-w-16 aspect-h-9">
+                <div class="w-full h-full bg-red-500 flex items-center justify-center text-white text-2xl">
+                    1
                 </div>
             </div>
-        </div>
-    </section>
+
+            <div class="aspect-w-16 aspect-h-9">
+                <div class="w-full h-full bg-green-500 flex items-center justify-center text-white text-2xl">
+                    2
+                </div>
+            </div>
+
+            <div class="aspect-w-16 aspect-h-9">
+                <div class="w-full h-full bg-yellow-500 flex items-center justify-center text-white text-2xl">
+                    3
+                </div>
+            </div>
+
+            <div class="aspect-w-16 aspect-h-9">
+                <div class="w-full h-full bg-blue-500 flex items-center justify-center text-white text-2xl">
+                    4
+                </div>
+            </div>
+
+            <div class="aspect-w-16 aspect-h-9">
+                <div class="w-full h-full bg-purple-500 flex items-center justify-center text-white text-2xl">
+                    5
+                </div>
+            </div>
+        </p-carousel>
+    </p-section>
+
+<!--    <section class="py-32">-->
+<!--        <div class="mx-auto max-w-portfolio px-6">-->
+<!--            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">{{ t('projects.title') }}</h2>-->
+
+<!--            <div class="relative">-->
+<!--                <button @click="prevProject"-->
+<!--                        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 backdrop-blur-md border border-white/10 p-3 rounded-full hover:bg-black/30 transition-all duration-300 hidden md:block">-->
+<!--                    <chevron-left-icon class="w-6 h-6"/>-->
+<!--                </button>-->
+
+<!--                <div class="overflow-hidden">-->
+<!--                    <div class="flex transition-transform duration-500 ease-in-out"-->
+<!--                         :style="{ transform: `translateX(-${currentProjectIndex * (100 / visibleProjects)}%)` }">-->
+<!--                        <div v-for="(project, index) in projects" :key="index"-->
+<!--                             :style="{ flex: `0 0 ${100 / visibleProjects}%` }"-->
+<!--                             class="px-3">-->
+<!--                            <div-->
+<!--                                class="backdrop-blur-md bg-black/30 border border-white/10 rounded-2xl overflow-hidden h-full transition-all duration-300 hover:bg-black/15 hover:translate-y-[-5px]">-->
+<!--                                <div class="aspect-video overflow-hidden">-->
+<!--                                    <img :src="project.image" :alt="project.name"-->
+<!--                                         class="w-full h-full object-cover"/>-->
+<!--                                </div>-->
+<!--                                <div class="p-6">-->
+<!--                                    <h3 class="text-xl font-bold mb-2">{{ project.name }}</h3>-->
+<!--                                    <p class="text-sm opacity-80 mb-4">{{ project.description }}</p>-->
+
+<!--                                    <div class="flex flex-wrap gap-2 mb-6">-->
+<!--                        <span v-for="tech in project.technologies" :key="tech"-->
+<!--                              class="text-xs px-3 py-1 rounded-full bg-blue-600/30 backdrop-blur-sm">-->
+<!--                          {{ tech }}-->
+<!--                        </span>-->
+<!--                                    </div>-->
+
+<!--                                    <a :href="project.github" target="_blank" rel="noopener noreferrer"-->
+<!--                                       class="inline-flex items-center px-4 py-2 bg-black/40 backdrop-blur-md border border-white/10 rounded-full hover:bg-black/30 transition-all duration-300">-->
+<!--                                        <github-icon class="w-4 h-4 mr-2"/>-->
+<!--                                        GitHub-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <button @click="nextProject"-->
+<!--                        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 backdrop-blur-md border border-white/10 p-3 rounded-full hover:bg-black/30 transition-all duration-300 hidden md:block">-->
+<!--                    <chevron-right-icon class="w-6 h-6"/>-->
+<!--                </button>-->
+
+<!--                &lt;!&ndash; Mobile Navigation Dots &ndash;&gt;-->
+<!--                <div class="flex justify-center space-x-2 mt-6 md:hidden">-->
+<!--                    <button v-for="(_, index) in Math.ceil(projects.length / visibleProjects)" :key="index"-->
+<!--                            @click="currentProjectIndex = index * visibleProjects"-->
+<!--                            :class="['w-3 h-3 rounded-full transition-all duration-300',-->
+<!--                               currentProjectIndex === index * visibleProjects ? 'bg-white' : 'bg-white/30']">-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
 </template>
 
 <script setup lang="ts">
@@ -68,6 +122,11 @@ import {
     ChevronRight as ChevronRightIcon,
 } from 'lucide-vue-next';
 import { computed, ref } from "vue";
+import { useI18n } from "vue-i18n";
+import { PSection } from "../p-section";
+import { PCarousel } from "../p-carousel";
+
+const { t } = useI18n()
 
 const projects = [
     {

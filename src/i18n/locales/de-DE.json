@@ -25,7 +25,13 @@
         "projects": "Projekte",
         "passion": "Leidenschaft"
     },
+    "skills": {
+        "title": "Meine Skills"
+    },
     "projects": {
         "title": "Meine Projekte"
+    },
+    "experience": {
+        "title": "Meine Erfahrung"
     }
 }
