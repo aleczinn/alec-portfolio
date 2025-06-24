@@ -2,7 +2,11 @@
     <header class="header">
         <div class="header-container">
             <div class="block lg:hidden hover:cursor-pointer" @click="toggleMobileMenu">
-                <MenuIcon></MenuIcon>
+                <div class="hamburger-menu" :class="{ 'is-open': isMenuOpen }">
+                    <span class="line line-1"></span>
+                    <span class="line line-2"></span>
+                    <span class="line line-3"></span>
+                </div>
             </div>
 
             <nav class="hidden lg:block">
@@ -24,7 +28,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Globe as GlobeIcon, Menu as MenuIcon, X as XIcon } from "lucide-vue-next"
+import { Globe as GlobeIcon } from "lucide-vue-next"
 
 interface Props {
     navItems: any
@@ -71,5 +75,30 @@ const closeMobileMenu = () => {
 
 .active {
     @apply text-new-light font-bold;
+}
+
+.hamburger-menu {
+    @apply w-6 h-6 flex flex-col justify-center items-center cursor-pointer;
+    gap: 4px;
+}
+
+.line {
+    @apply w-[1.375rem] h-0.5 bg-white rounded-full;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+/* Animation zum X */
+.hamburger-menu.is-open .line-1 {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-menu.is-open .line-2 {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger-menu.is-open .line-3 {
+    transform: translateY(-6px) rotate(-45deg);
 }
 </style>
