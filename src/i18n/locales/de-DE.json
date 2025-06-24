@@ -18,11 +18,14 @@
     },
     "about-me": {
         "title": "Kreativität trifft auf Code",
-        "text1": "Als leidenschaftlicher Frontend-Entwickler verbinde ich technisches Know-how mit kreativem Design. Mein Ziel ist es, Webanwendungen zu erschaffen, die nicht nur funktional sind, sondern auch durch ihre Benutzerfreundlichkeit und ästhetische Gestaltung überzeugen.",
-        "text2": "Mit einem Auge fürs Detail und einem tiefen Verständnis moderner Webtechnologien bringe ich Ideen zum Leben und schaffe digitale Erlebnisse, die begeistern.",
+        "text1": "Ich liebe es, Dinge zum Leben zu erwecken – sei es eine kleine Idee, die den Alltag erleichtert, oder eine aufwendige Webanwendung, die mit Performance, Ästhetik und Benutzerfreundlichkeit überzeugt. Dabei geht es mir nicht nur um den Code, sondern um die Menschen, die ihn nutzen.",
+        "text2": "Was mich auszeichnet? Ich bin mit Herz bei der Sache. Ich höre zu, denke mit und setze Projekte mit einem hohen Anspruch an Qualität und einem offenen, liebevollen Blick fürs Detail um. Für mich ist Technik ein Werkzeug, um gute Ideen greifbar zu machen – und genau das begeistert mich jeden Tag aufs Neue.",
         "java": "Jahre Java",
         "frontend": "Jahre Frontend",
         "projects": "Projekte",
         "passion": "Leidenschaft"
+    },
+    "projects": {
+        "title": "Meine Projekte"
     }
 }

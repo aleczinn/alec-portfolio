@@ -18,11 +18,14 @@
     },
     "about-me": {
         "title": "Creativity meets code",
-        "text1": "As a passionate front-end developer, I combine technical know-how with creative design. My goal is to create web applications that are not only functional, but also impress with their user-friendliness and aesthetic design.",
-        "text2": "With an eye for detail and a deep understanding of modern web technologies, I bring ideas to life and create digital experiences that inspire.",
+        "text1": "I love bringing things to life - whether it's a small idea that makes everyday life easier or an elaborate web application that impresses with its performance, aesthetics and user-friendliness. For me, it's not just about the code, but about the people who use it.",
+        "text2": "What sets me apart? I put my heart into my work. I listen, think and implement projects with a high standard of quality and an open, loving eye for detail. For me, technology is a tool to make good ideas tangible - and that's exactly what inspires me every day.",
         "java": "Years Java",
         "frontend": "Years Frontend",
         "projects": "Projects",
         "passion": "Passion"
+    },
+    "projects": {
+        "title": "My projects"
     }
 }
