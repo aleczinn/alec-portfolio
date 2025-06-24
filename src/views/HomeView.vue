@@ -1,5 +1,5 @@
 <template>
-    <div class="relative min-h-screen overflow-hidden">
+    <div class="relative min-h-screen">
         <!-- Animated Background -->
         <div class="fixed inset-0 z-0">
             <div class="absolute inset-0 bg-black">
@@ -31,9 +31,9 @@
             <p-header :nav-items="navItems" :active-section="activeSection" @toggle-language="toggleLanguage"></p-header>
             <p-section-hero id="hero" :social-links="socialLinks"></p-section-hero>
             <p-section-about-me id="about"></p-section-about-me>
-            <p-section-skills id="skills"></p-section-skills>
-            <p-section-projects id="projects"></p-section-projects>
-            <p-section-career id="career"></p-section-career>
+<!--            <p-section-skills id="skills"></p-section-skills>-->
+<!--            <p-section-projects id="projects"></p-section-projects>-->
+<!--            <p-section-career id="career"></p-section-career>-->
             <p-footer :social-links="socialLinks"></p-footer>
             <p-scroll-to-top></p-scroll-to-top>
         </div>
