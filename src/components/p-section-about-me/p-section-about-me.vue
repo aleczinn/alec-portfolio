@@ -3,7 +3,7 @@
         <div class="mx-auto max-w-portfolio px-6">
             <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">{{ t('about-me.title') }}</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
                 <div class="p-6 w-full">
                     <div class="aspect-w-16 aspect-h-9">
                         <div class="w-full h-full rounded-2xl overflow-hidden">
