@@ -1,5 +1,5 @@
 <template>
-    <header class="header">
+    <header class="header" ref="header">
         <div class="header-container">
             <div class="mobile-icon-container" @click="toggleMobileMenu">
                 <div class="menu" :class="{ 'is-open': isMenuOpen }">
@@ -24,14 +24,24 @@
             </div>
         </div>
 
-        <div class="">
-
-        </div>
+        <Transition name="mobile-dropdown">
+            <div v-if="isMenuOpen" class="mobile-menu">
+                <nav class="navigation">
+                    <ul class="mobile-nav-list">
+                        <li v-for="(item, index) in navItems" :key="index" class="mobile-nav-item" :style="{ animationDelay: `${index * 0.1}s` }">
+                            <a :href="`#${item.id}`" class="mobile-nav-link" @click="closeMobileMenu" :class="{'active': activeSection === item.id}">
+                                {{ item.name }}
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </Transition>
     </header>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { Globe as GlobeIcon } from "lucide-vue-next"
 
 interface Props {
@@ -44,6 +54,7 @@ withDefaults(defineProps<Props>(), {
     activeSection: ''
 })
 
+const header = ref<HTMLElement>()
 const isMenuOpen = ref(false)
 
 const emit = defineEmits(['toggle-language'])
@@ -60,6 +71,23 @@ const toggleMobileMenu = () => {
 const closeMobileMenu = () => {
     isMenuOpen.value = false
 }
+
+// Click outside handler
+const handleClickOutside = (event: MouseEvent) => {
+    if (header.value && !header.value.contains(event.target as Node)) {
+        if (isMenuOpen.value) {
+            closeMobileMenu()
+        }
+    }
+}
+
+onMounted(() => {
+    document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+    document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <style scoped lang="postcss">
@@ -98,6 +126,7 @@ const closeMobileMenu = () => {
     @apply text-new-light font-bold;
 }
 
+/* Hamburger Menu */
 .menu {
     @apply w-6 h-6 flex flex-col justify-center items-center cursor-pointer;
     gap: 4px;
@@ -120,5 +149,44 @@ const closeMobileMenu = () => {
 
 .menu.is-open .line-3 {
     transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile Menu Dropdown */
+.mobile-menu {
+    @apply lg:hidden absolute top-full left-0 right-0 bg-black/60 backdrop-blur-sm rounded-b-2xl;
+    @apply border-t border-white/10;
+}
+
+.mobile-menu .navigation {
+    @apply p-6 shadow-lg;
+}
+
+.mobile-nav-list {
+    @apply flex flex-col gap-4;
+}
+
+.mobile-nav-item {
+    @apply opacity-0;
+    animation: slideInFromTop 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.mobile-nav-link {
+    @apply block text-lg font-medium text-white py-3 px-4 rounded-lg transition-all duration-300;
+    @apply hover:bg-white/10 hover:text-new-light;
+}
+
+.mobile-nav-link.active {
+    @apply text-new-light bg-white/5;
+}
+
+@keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 </style>
