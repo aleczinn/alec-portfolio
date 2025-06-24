@@ -12,7 +12,7 @@
 
 <style scoped lang="postcss">
 .section {
-    @apply py-32;
+    @apply py-16;
 }
 
 .section-container {
