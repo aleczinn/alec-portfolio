@@ -47,7 +47,7 @@
                     :disabled="isNavigationDisabled.previous"
                     :class="['btn-arrow', 'btn-arrow-left', { 'btn-disabled': isNavigationDisabled.previous }]"
             >
-                <icon-arrow-left class="w-6 h-6"/>
+                <component :is="ChevronLeftIcon" class="w-6 h-6"></component>
             </button>
 
             <button v-if="config.arrows"
@@ -55,7 +55,7 @@
                     :disabled="isNavigationDisabled.next"
                     :class="['btn-arrow', 'btn-arrow-right', { 'btn-disabled': isNavigationDisabled.next }]"
             >
-                <icon-arrow-right class="w-6 h-6"/>
+                <component :is="ChevronRightIcon" class="w-6 h-6"></component>
             </button>
 
             <!-- dot navigation -->
@@ -70,8 +70,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watch, nextTick, type VNode } from 'vue'
-import IconArrowRight from "../../icons/icon-arrow-right.vue";
-import IconArrowLeft from "../../icons/icon-arrow-left.vue";
+import { ChevronLeft as ChevronLeftIcon, ChevronRight as ChevronRightIcon } from 'lucide-vue-next';
 
 export interface ResponsiveConfig {
     autoplayDelay?: number
