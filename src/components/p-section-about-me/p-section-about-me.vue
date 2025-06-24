@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <div class="p-6 w-full flex flex-col justify-items-center">
+            <div class="p-6 w-full flex flex-col justify-center">
                 <p class="text-lg mb-8">{{ t('about-me.text1')}}</p>
                 <p class="text-lg mb-12">{{ t('about-me.text2')}}</p>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
