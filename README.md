@@ -12,6 +12,7 @@
 ## **Features:**
 
 * **Multiple Languages Supported:** Switch effortlessly between german and english. Your preference is saved, even after you close the page!
+* **Self-developed**: Each component such as the Carousel was developed by myself without frameworks
 * **Animations:** I added some animations to give the website a better feeling
 * **Clean Code 👍:** Well-formatted and easy to follow.
 * **And More!** See the details below.
