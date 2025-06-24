@@ -1,16 +1,16 @@
 <template>
     <header class="header">
         <div class="header-container">
-            <div class="block lg:hidden hover:cursor-pointer" @click="toggleMobileMenu">
-                <div class="hamburger-menu" :class="{ 'is-open': isMenuOpen }">
+            <div class="mobile-icon-container" @click="toggleMobileMenu">
+                <div class="menu" :class="{ 'is-open': isMenuOpen }">
                     <span class="line line-1"></span>
                     <span class="line line-2"></span>
                     <span class="line line-3"></span>
                 </div>
             </div>
 
-            <nav class="hidden lg:block">
-                <ul class="flex flex-row justify-center items-center gap-12">
+            <nav class="navigation">
+                <ul class="list">
                     <li v-for="(item, index) in navItems" :key="index" class="">
                         <a :href="`#${item.id}`" class="link" :class="{'active': activeSection === item.id}">
                             {{ item.name }}
@@ -19,9 +19,13 @@
                 </ul>
             </nav>
 
-            <div class="ml-12" @click="toggleLanguage">
-                <GlobeIcon></GlobeIcon>
+            <div class="language" @click="toggleLanguage">
+                <GlobeIcon class="link"></GlobeIcon>
             </div>
+        </div>
+
+        <div class="">
+
         </div>
     </header>
 </template>
@@ -69,15 +73,32 @@ const closeMobileMenu = () => {
     @apply flex flex-row justify-between;
 }
 
+.header .header-container .mobile-icon-container {
+    @apply block lg:hidden hover:cursor-pointer;
+}
+
+.header .header-container .navigation {
+    @apply hidden lg:block;
+}
+
+.header .header-container .navigation .list {
+    @apply flex flex-row justify-center items-center gap-12;
+}
+
+.header .header-container .language {
+    @apply lg:ml-12;
+}
+
 .link {
     @apply text-base transition-all duration-300;
+    @apply hover:text-new-lightest hover:cursor-pointer;
 }
 
 .active {
     @apply text-new-light font-bold;
 }
 
-.hamburger-menu {
+.menu {
     @apply w-6 h-6 flex flex-col justify-center items-center cursor-pointer;
     gap: 4px;
 }
@@ -88,17 +109,16 @@ const closeMobileMenu = () => {
     transform-origin: center;
 }
 
-/* Animation zum X */
-.hamburger-menu.is-open .line-1 {
+.menu.is-open .line-1 {
     transform: translateY(6px) rotate(45deg);
 }
 
-.hamburger-menu.is-open .line-2 {
+.menu.is-open .line-2 {
     opacity: 0;
     transform: scaleX(0);
 }
 
-.hamburger-menu.is-open .line-3 {
+.menu.is-open .line-3 {
     transform: translateY(-6px) rotate(-45deg);
 }
 </style>
