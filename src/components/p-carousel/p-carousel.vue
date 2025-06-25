@@ -121,7 +121,8 @@ const emit = defineEmits<{
     endReached: []
     startReached: []
     autoplayStarted: []
-    autoplayStopped: []
+    autoplayStopped: [],
+    localeChanged: []
 }>()
 
 const slots = defineSlots<{
@@ -648,6 +649,12 @@ watch(() => config.value.autoplayDelay, (newDelay, oldDelay) => {
         if (newDelay !== -1) {
             startAutoplay()
         }
+    }
+})
+
+watch(() => getCurrentLocale(), (newLocale, oldLocale) => {
+    if (newLocale !== oldLocale) {
+        emit('localeChanged');
     }
 })
 

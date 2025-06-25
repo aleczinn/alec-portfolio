@@ -37,7 +37,7 @@
             },
             "loki": {
                 "name": "Loki",
-                "description": "Ein selbstgehostetes Medienverwaltungs- und Streaming-System, mit dem man seine persönliche Medien organisieren und über das lokale Netzwerk streamen kann."
+                "description": "Ein Medienverwaltungs/Streaming-System, mit dem man seine persönliche Medien organisieren und über das lokale Netzwerk streamen kann."
             },
             "skyengine": {
                 "name": "SkyEngine (Alt)",

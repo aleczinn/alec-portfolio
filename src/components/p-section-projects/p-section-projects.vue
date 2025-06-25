@@ -2,7 +2,9 @@
     <p-section>
         <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">{{ t('projects.title') }}</h2>
 
-        <p-carousel class="border-4 border-solid border-transparent"
+        <p-carousel :key="carouselKey"
+                    @locale-changed="handleLocaleChange"
+                    class="border-4 border-solid border-transparent"
                     :autoplay-delay="-1"
                     :infinite="true"
                     :arrows="true"
@@ -15,10 +17,16 @@
                     :slides-to-scroll="1"
                     :responsive="{
                         md: {
-                            slidesPerView: 2
+                            slidesPerView: 1
                         },
                         lg: {
                             slidesPerView: 2
+                        },
+                        xl: {
+                            slidesPerView: 2
+                        },
+                        '2xl': {
+                            slidesPerView: 3
                         }
                     }"
         >
@@ -57,6 +65,13 @@ import { PSection } from "../p-section";
 import { PCarousel } from "../p-carousel";
 
 const { t } = useI18n()
+
+const carouselKey = ref(0)
+
+const handleLocaleChange = () => {
+    console.log("LOCLALLSDAS");
+    carouselKey.value++
+}
 
 const projects = computed(() => [
     {
