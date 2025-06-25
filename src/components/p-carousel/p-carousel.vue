@@ -69,8 +69,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, watch, nextTick, type VNode } from 'vue'
+import { computed, Fragment, nextTick, onMounted, onUnmounted, ref, type VNode, watch } from 'vue'
 import { ChevronLeft as ChevronLeftIcon, ChevronRight as ChevronRightIcon } from 'lucide-vue-next';
+import { getCurrentLocale } from "../../i18n";
 
 export interface ResponsiveConfig {
     autoplayDelay?: number
@@ -163,10 +164,19 @@ const slides = computed((): VNode[] => {
     const defaultSlot = slots.default?.()
     if (!defaultSlot) return []
 
-    return defaultSlot.filter((vnode: any) =>
-        vnode.type !== Comment &&
-        (typeof vnode.type !== 'symbol' || vnode.children)
-    )
+    const flattenVNodes = (vnodes: any[]): any[] => {
+        const result: any[] = []
+        for (const vnode of vnodes) {
+            if (vnode.type === Fragment && Array.isArray(vnode.children)) {
+                result.push(...flattenVNodes(vnode.children))
+            } else if (vnode.type !== Comment && (typeof vnode.type !== 'symbol' || vnode.children)) {
+                result.push(vnode)
+            }
+        }
+        return result
+    }
+
+    return flattenVNodes(defaultSlot)
 })
 
 // Computed: Current breakpoint
@@ -675,7 +685,7 @@ defineExpose({
 
 <style scoped lang="postcss">
 .carousel {
-    @apply relative w-full overflow-hidden;
+    @apply relative w-full overflow-x-clip;
 
     .carousel-container {
         @apply relative w-full h-full;
@@ -720,7 +730,7 @@ defineExpose({
 }
 
 .btn-arrow {
-    @apply absolute top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 text-white p-2 rounded-full transition-all duration-200 backdrop-blur-sm z-20;
+    @apply absolute top-1/2 transform -translate-y-1/2 bg-black/40 bg-opacity-20 text-white p-2 rounded-full transition-all duration-200 backdrop-blur-sm z-20;
 
     &:hover:not(.btn-disabled) {
         @apply bg-opacity-30;
