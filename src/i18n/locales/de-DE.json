@@ -29,7 +29,33 @@
         "title": "Meine Skills"
     },
     "projects": {
-        "title": "Meine Projekte"
+        "title": "Meine Projekte",
+        "projects": {
+            "cookbook": {
+                "name": "Snacki (Rezeptverwaltung)",
+                "description": "Meine eigene Rezeptverwaltung, inspiriert durch Chefkoch, um meine eigenen Rezepte zu verwalten."
+            },
+            "loki": {
+                "name": "Loki",
+                "description": "Ein selbstgehostetes Medienverwaltungs- und Streaming-System, mit dem man seine persönliche Medien organisieren und über das lokale Netzwerk streamen kann."
+            },
+            "skyengine": {
+                "name": "SkyEngine (Alt)",
+                "description": "Dies ist eine Game Engine für 2D/3D, die Java und die LWJGL3-Bibliothek verwendet."
+            },
+            "skyenginex": {
+                "name": "SkyEngine-X",
+                "description": "Eine Voxel-Engine, die auf dem Spiel Minecraft basiert, aber mit meinen eigenen Ideen."
+            },
+            "financemanager": {
+                "name": "Finanz Manager",
+                "description": "Dies ist ein Finanzmanager, der mein Bankkonto im Auge behält."
+            },
+            "mediamanager": {
+                "name": "Media Manager",
+                "description": "Dieses kleine Tool nimmt mkv- und mp4-Dateien und sortiert die Audiospuren und Untertitel in der angegebenen Reihenfolge."
+            }
+        }
     },
     "experience": {
         "title": "Meine Erfahrung"
