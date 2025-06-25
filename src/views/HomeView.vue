@@ -71,7 +71,7 @@ const navItems = computed(() => [
 
 const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/aleczinn', icon: GithubIcon },
-    { name: 'LinkedIn', url: 'www.linkedin.com/in/alec-zinn', icon: LinkedinIcon },
+    { name: 'LinkedIn', url: 'https://linkedin.com/in/alec-zinn', icon: LinkedinIcon },
     { name: 'Xing', url: 'https://www.xing.com/profile/Alec_Zinn/', icon: IconXing }
 ];
 
