@@ -53,7 +53,7 @@
             },
             "mediamanager": {
                 "name": "Media Manager",
-                "description": "Dieses kleine Tool nimmt mkv- und mp4-Dateien und sortiert die Audiospuren und Untertitel in der angegebenen Reihenfolge."
+                "description": "Dieses kleine Tool nimmt mkv/mp4/avi-Dateien und sortiert Tonspuren und Untertitel nach Format in der angegebenen Reihenfolge."
             }
         }
     },

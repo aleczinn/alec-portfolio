@@ -53,7 +53,7 @@
             },
             "mediamanager": {
                 "name": "Media Manager",
-                "description": "This small tool takes mkv and mp4 files and sorts the audio tracks and subtitles according to the specified order."
+                "description": "This small tool takes mkv/mp4/avi files and sorts audio tracks and subtitles by format in the specified order."
             }
         }
     },
