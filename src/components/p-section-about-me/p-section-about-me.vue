@@ -36,7 +36,7 @@ const { t } = useI18n()
 const stats = computed(() => [
     { value: '10+', label: t('about-me.java') },
     { value: '3+', label: t('about-me.frontend') },
-    { value: '10+', label: t('about-me.projects') },
+    { value: '7+', label: t('about-me.projects') },
     { value: '100%', label: t('about-me.passion') }
 ]);
 </script>
